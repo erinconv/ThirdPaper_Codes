@@ -14,6 +14,8 @@ def run_main_simulation(physiographic_results_path, params_name, output_vars):
         eng.addpath(matlab_function_path, nargout=0)
         matlab_functions_path = r'src/matlab_functions'  # Path to read_jsons.m
         eng.addpath(matlab_functions_path, nargout=0)
+        matlab_calibration_function_path = r'src/calibration'  # Path to read_jsons.m
+        eng.addpath(matlab_calibration_function_path, nargout=0)
 
         # Set execution dates
         execution = {}  # Create a dictionary to hold execution parameters
@@ -21,8 +23,10 @@ def run_main_simulation(physiographic_results_path, params_name, output_vars):
         execution['dateFin'] = eng.datenum("2000-12-31")  # Convert to MATLAB datenum
 
         # Call the main_simulation function and capture the outputs
-        output_vars = eng.main_simulation(physiographic_results_path,
-                            params_name, execution, output_vars, 0, nargout=1)
+        # output_vars = eng.main_simulation(physiographic_results_path,
+        #                     params_name, execution, output_vars, 0, nargout=1)
+        output_vars = eng.main_calibration_flow(physiographic_results_path,
+                            params_name, execution, 0, nargout=0)
     except Exception as e:
         print(f'An error occurred: {e}')
     finally:
@@ -43,7 +47,7 @@ def main():
     
     # Call the run_main_simulation function with the variable names
     output_vars = run_main_simulation(physiographic_results_path, 'parameters_degree_day.json', variable_names)
-    print(np.array(output_vars).shape)
+    
     # selected_cps = np.array([1, 2, 3])
     
     # print(np.array(selected_cps))

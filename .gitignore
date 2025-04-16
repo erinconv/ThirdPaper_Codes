@@ -246,3 +246,4 @@ codegen/
 octave-workspace
 
 libs/
+results/
