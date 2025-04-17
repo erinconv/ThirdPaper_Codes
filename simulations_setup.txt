@@ -1,0 +1,23 @@
+[PATHS]
+main = src
+functions = src/matlab_functions
+calibration = src/calibration
+sensitivity = src/sensitivity_analysis
+
+[DATES]
+start_date = 1980-1-1
+end_date = 1990-12-31
+
+[CALIBRATION]
+objective_function = KGE
+type = single_site
+cp = 1
+
+[SIMULATION]
+physiographic_path = C:\Users\Owner\Documents\rinconei\00-CEQUEAU_projects\Melezes
+flow_file_path = C:\Users\Owner\Documents\rinconei\00-CEQUEAU_projects\Melezes\flow_station.csv
+params_file = parameters_degree_day.json
+verbose = 1
+output_vars = debit,volume,apport,temperature
+thermie = 0
+
