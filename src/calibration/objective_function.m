@@ -28,7 +28,7 @@ function F = objective_function(x, execution_dates, params_struct, basin_struct,
     % % 2. Update Snow Melt and Evaporation Parameters based on selected module
     params_struct = update_snow_evap_parameters(params_struct, x);
 
-    a = 1;
+    % a = 1;
     
     % 3. Run CEQUEAU Model Simulation
     % Execute the hydrological model with updated parameters
