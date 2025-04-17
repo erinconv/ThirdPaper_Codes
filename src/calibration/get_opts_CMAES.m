@@ -54,7 +54,7 @@ function [defopts, sigma, x0] = get_opts_CMAES(prefix, model, params_struct)
     % Set CMA-ES options
     defopts.LBounds = lb;
     defopts.UBounds = ub;
-    defopts.LogPlot = 'on';
+    % defopts.LogPlot = 'on';
     defopts.SaveFilename = append(prefix, '_variablescmaes.mat');
     defopts.LogFilenamePrefix = prefix;
     defopts.MaxFunEvals = 3500;

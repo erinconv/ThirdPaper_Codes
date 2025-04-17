@@ -60,6 +60,12 @@ function output_array = main_simulation(physiographic_results_path, params_name,
     
     % Fill the output array with the corresponding variables
     for i = 1:length(output_vars)
+
+        % Check if step on CP variable, then skip
+        if strcmp(output_vars{i},"CPs")
+            continue
+        end
+
         if ismember(output_vars{i}, variable_names)
             output_array(i, :, :) = resu.CP.(output_vars{i})(:,selected_cps);
         else
