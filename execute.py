@@ -270,12 +270,12 @@ class MatlabRunner:
             execution = self._get_execution_params()
             
             # Set the prefix name for the calibration results
-            prefixName = f'results/calibration/CMAES/{self.objective_function}'
+            prefixName_path = f'results/calibration/CMAES/{self.objective_function}'
             # Check if the folder that will contain the results exists, if not, create it
-            if not os.path.exists(prefixName):
-                os.makedirs(prefixName)
+            if not os.path.exists(prefixName_path):
+                os.makedirs(prefixName_path)
             # List of all objective functions to calibrate
-            # prefixName = f'{prefixName_path}'
+            prefixName = f'{prefixName_path}/{self.objective_function}'
             
             # Run the calibration for each objective function
             self._engine.main_calibration_flow(
